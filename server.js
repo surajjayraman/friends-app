@@ -7,9 +7,12 @@ let data = [
 ];
 
 const express = require('express');
+const morgan = require('morgan');
 
 const PORT = 8080;
 const app = express();
+
+app.use(morgan('dev'));
 
 app.get('/api/names', (req, res) => {
     res.json(data)
