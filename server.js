@@ -12,7 +12,7 @@ const PORT = 8080;
 const app = express();
 
 app.get('/api/names', (req, res) => {
-    res.json('Welcome to the Friends App')
+    res.json(data)
 
 })
 
