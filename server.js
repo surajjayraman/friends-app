@@ -3,8 +3,8 @@ const express = require('express');
 const PORT = 8080;
 const app = express();
 
-app.get('/names', (req, res) => {
-    res.send('Welcome to the Friends App')
+app.get('/api/names', (req, res) => {
+    res.json('Welcome to the Friends App')
 
 })
 
