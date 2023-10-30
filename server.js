@@ -8,17 +8,26 @@ let data = [
 
 const express = require('express');
 const morgan = require('morgan');
+const uniqid = require("uuid");
 
 const PORT = 8080;
 const app = express();
 
 app.use(morgan('dev'));
+app.use(express.json());
 
-app.get('/api/names', (req, res) => {
-    res.json(data)
+app.get("/api/names", (req, res) => {
+    res.json(data);
+});
 
-})
+app.post("/api/names", (req, res) => {
+    console.log(req.body);
+    const uid = uniqid();
+    const friend = { ...req.body, uid };
+    data.push(friend);
+    res.send(friend);
+});
 
 app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT} with nodemon up`)
+    console.log(`Server started on port ${PORT}`);
 });
