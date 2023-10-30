@@ -22,7 +22,7 @@ app.get("/api/names", (req, res) => {
 
 app.post("/api/names", (req, res) => {
     console.log(req.body);
-    const uid = uniqid();
+    const uid = uniqid;
     const friend = { ...req.body, uid };
     data.push(friend);
     res.send(friend);
